@@ -1,35 +1,33 @@
-
 <!DOCTYPE html>
 <html lang="pt">
 <head>
   <meta charset="UTF-8">
   <title>Adicionar Ponto de Interesse</title>
-  <script src="script.js" defer></script>
 </head>
 <body>
   <h2>Adicionar Ponto de Interesse</h2>
 
   <form id="formulario">
     <label>Data de Inserção:</label>
-    <input type="date" name="data_insercao" required><br><br>
+    <input type="date" name="data_insercao"><br><br>
 
     <label>Início do Interesse:</label>
-    <input type="date" name="inicio_interesse" required><br><br>
+    <input type="date" id="inicio" name="inicio_interesse"><br><br>
 
     <label>Fim do Interesse:</label>
-    <input type="date" name="fim_interesse" required><br><br>
+    <input type="date" id="fim" name="fim_interesse"><br><br>
 
     <label>Descrição Inicial:</label><br>
-    <textarea name="descricao_inicial" rows="4" cols="50" required></textarea><br><br>
+    <textarea id="descricao_inicial" name="descricao_inicial" rows="4" cols="50"></textarea><br><br>
 
     <label>Descrição Final:</label><br>
     <textarea name="descricao_final" rows="4" cols="50"></textarea><br><br>
 
     <label>Localização (Google Maps URL):</label>
-    <input type="url" name="localizacao_google_maps" required><br><br>
+    <input type="url" name="localizacao_google_maps"><br><br>
 
     <label>Classificação:</label>
-    <select name="classificacao" required>
+    <select name="classificacao">
       <option value="ir">Ir</option>
       <option value="não voltar">Não voltar</option>
       <option value="voltar">Voltar</option>
@@ -42,8 +40,27 @@
     <label for="fotos">Fotografias:</label>
     <input type="file" id="fotos" name="fotos[]" multiple accept="image/*"><br><br>
 
-    <button type="button" onclick="guardarRegisto()">Adicionar</button>
+    <button onclick="criarEvento()">Adicionar</button>
     <button type="button" onclick="window.location.href='listar_registos.html'">Listar Registos</button>
   </form>
+
+  <script>
+    function criarEvento() {
+      const dataInicio = document.getElementById("inicio").value;
+      const dataFim = document.getElementById("fim").value;
+      const descricao = document.getElementById("descricao_inicial").value;
+
+      if (dataInicio && dataFim && descricao) {
+        const titulo = encodeURIComponent(descricao);
+        const inicioFormatado = dataInicio.replace(/-/g, "") + "T000000Z";
+        const fimFormatado = dataFim.replace(/-/g, "") + "T000000Z";
+        const url = `https://www.google.com/calendar/render?action=TEMPLATE&text=${titulo}&dates=${inicioFormatado}/${fimFormatado}`;
+        alert("Evento criado de " + dataInicio + " até " + dataFim + ": " + descricao);
+        window.open(url, "_blank");
+      } else {
+        alert("Por favor, preenche os campos de data de início, data de fim e descrição inicial.");
+      }
+    }
+  </script>
 </body>
 </html>
