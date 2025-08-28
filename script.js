@@ -36,3 +36,6 @@ function listarRegistos() {
 if (document.getElementById('listaRegistos')) {
   listarRegistos();
 }
+if (document.getElementById('adicionar')) {
+  guardarRegisto();
+}
