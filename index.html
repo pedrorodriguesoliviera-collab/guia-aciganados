@@ -18,12 +18,6 @@
     <label>Início do Interesse:</label>
     <input type="date" id="inicio" name="inicio_interesse"><br><br>
 
-    <label>Fim do Interesse:</label>
-    <input type="date" id="fim" name="fim_interesse"><br><br>
-
-    <label>Descrição Final:</label><br>
-    <textarea name="descricao_final" rows="4" cols="50"></textarea><br><br>
-
     <label>Localização (Google Maps URL):</label>
     <input type="url" name="localizacao_google_maps"><br><br>
 
@@ -40,6 +34,12 @@
 
     <label for="fotos">Fotografias:</label>
     <input type="file" id="fotos" name="fotos[]" multiple accept="image/*"><br><br>
+
+    <label>Fim do Interesse:</label>
+    <input type="date" id="fim" name="fim_interesse"><br><br>
+
+    <label>Descrição Final:</label><br>
+    <textarea name="descricao_final" rows="4" cols="50"></textarea><br><br>
 
     <button onclick="criarEvento()">Adicionar</button>
     <button type="button" onclick="window.location.href='listar_registos.html'">Listar Registos</button>
