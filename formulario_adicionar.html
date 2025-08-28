@@ -1,0 +1,46 @@
+
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <title>Adicionar Ponto de Interesse</title>
+</head>
+<body>
+    <h2>Adicionar Ponto de Interesse</h2>
+    <form action="/adicionar" method="POST" enctype="multipart/form-data">
+        <label>Data de Inserção:</label>
+        <input type="date" name="data_insercao" required><br><br>
+
+        <label>Início do Interesse:</label>
+        <input type="date" name="inicio_interesse" required><br><br>
+
+        <label>Fim do Interesse:</label>
+        <input type="date" name="fim_interesse" required><br><br>
+
+        <label>Descrição Inicial:</label><br>
+        <textarea name="descricao_inicial" rows="4" cols="50" required></textarea><br><br>
+
+        <label>Descrição Final:</label><br>
+        <textarea name="descricao_final" rows="4" cols="50"></textarea><br><br>
+
+        <label>Localização (Google Maps URL):</label>
+        <input type="url" name="localizacao_google_maps" required><br><br>
+
+        <label>Classificação:</label>
+        <select name="classificacao" required>
+            <option value="ir">Ir</option>
+            <option value="não voltar">Não voltar</option>
+            <option value="voltar">Voltar</option>
+            <option value="sem dúvida a visitar de novo">Sem dúvida a visitar de novo</option>
+        </select><br><br>
+
+        <label>Links Externos (separados por vírgulas):</label><br>
+        <textarea name="links_externos" rows="2" cols="50"></textarea><br><br>
+
+        <label>Fotografias:</label>
+        <input type="file" name="fotos" multiple><br><br>
+
+        <button type="submit">Adicionar</button>
+    </form>
+</body>
+</html>
